@@ -1,0 +1,103 @@
+body {
+  font-family: sans-serif;
+  background-color: whitesmoke;
+  color: rgb(199, 71, 2);
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h1{
+  background: rgb(146, 169, 198);
+  border-radius: 35px;
+  padding: 20px;
+}
+
+#drawing{
+  font-size: 60px;
+  white-space: pre;
+  text-align: center;
+  height: 160px;
+  margin-bottom: 20px;
+}
+
+#word{
+  display: flex;
+  gap: 8px;
+  font-size: 40px;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+}
+
+#word span{
+  border-bottom: 2px solid black;
+  min-width: 30px;
+  text-align: center;
+}
+
+#message{
+  font-size: 22px;
+  font-width: bold;
+  margin-bottom: 15px;
+  min-height: 30px;
+}
+
+#keyboard{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-width: 500px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#keyboard button{
+  width: 40;
+  height: 40;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+#keyboard button:disabled{
+  background: grey;
+  color: #999;
+  cursor: not-allowed;
+}
+
+table{
+  border-collapse: collapse;
+  background: rgb(243, 238, 238);
+  color: rgb(199, 71, 2);
+  margin-bottom: 20px;
+}
+
+th, td{
+  border: none;
+  border-radius: 30px;
+  background: rgb(238, 235, 235);
+  padding: 8px 20px;
+  text-align: center;
+  font-size: 16px;
+}
+
+th{
+  background: rgb(146, 169, 198);
+}
+
+#reset{
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  background: rgb(146, 169, 198);
+  color: rgb(199, 71, 2);
+  border: none;
+  border-radius:25px;
+}
