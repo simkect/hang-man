@@ -1,7 +1,7 @@
 body {
   font-family: sans-serif;
   background-color: whitesmoke;
-  color: rgb(199, 71, 2);
+  color: rgb(96 35 2);
   display: grid;
   justify-content: center;
   align-items: center;
@@ -74,7 +74,7 @@ h1{
 table{
   border-collapse: collapse;
   background: rgb(243, 238, 238);
-  color: rgb(199, 71, 2);
+  color: rgb(96 35 2);
   margin-bottom: 20px;
 }
 
@@ -97,7 +97,7 @@ th{
   font-weight: bold;
   cursor: pointer;
   background: rgb(146, 169, 198);
-  color: rgb(199, 71, 2);
+  color: rgb(96 35 2);
   border: none;
   border-radius:25px;
 }
