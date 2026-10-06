@@ -34,3 +34,29 @@ function buildKeyboard() {
   });
 }
 
+function draw() {
+  const stages = ["🧔","💀","💪","🦵","💪","🦵"]
+  const wrong = 6 - lives;
+
+  document.getElementById("drawing").textContent = stages[Math.min(wrong, 5)];
+
+  const wordBox = document.getElementById("word");
+  wordBox.innerHTML = "";
+  for (const letter of word) {
+    const span = document.createElement("span");
+    span.textContent = correct.includes(letter) ? letter : "";
+    wordBox.appendChild(span);
+  }
+
+  const alphabet = "QWERTYUIOPASDFGHJKLZXCVBNM".split("");
+  document.getElementById("guessed").textContent =
+    guessed.slice().sort().join(" ") || "-";
+
+  document.getElementById("remaining").textContent =
+    alphabet.filter((char) => !guessed.includes(char)).join(" ") || "-";
+
+  document.querySelectorAll("keybord button").forEach((btn) => {
+    btn.disabled = guessed.includes(btn.textContent) || over;
+  });
+}
+
