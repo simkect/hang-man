@@ -13,50 +13,48 @@ let correct = [];
 let over = false;
 
 function newGame() {
-  word = words[Math.floor(Math.random() * words.length)];
-  lives = 6;
-  guessed = [];
-  correct = [];
-  over = false;
-  document.getElementById("message").textContent = "";
-  buildKeyboard();
-  draw();
+    word = words[Math.floor(Math.random() * words.length)];
+    lives = 6;
+    guessed = [];
+    correct = [];
+    over = false;
+    document.getElementById("message").textContent = "";
+    buildKeyboard();
+    draw();
 }
 
 function buildKeyboard() {
-  const kb = document.getElementById("keyboard");
-  kb.innerHTML = "";
-  "QWERTYUIOPASDFGHJKLZXCVBNM".split("").forEach((letter) => {
-    const btn = document.createElement("button");
-    btn.textContent = letter;
-    btn.onclick = () => guess(letter);
-    kb.appendChild(btn);
-  });
+    const kb = document.getElementById("keyboard");
+    kb.innerHTML = "";
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").forEach(letter => {
+        const btn = document.createElement("button");
+        btn.textContent = letter;
+        btn.onclick = () => guess(letter);
+        kb.appendChild(btn);
+    });
 }
 
 function draw() {
-  const stages = ["🧔","💀","💪","🦵","💪","🦵"]
-  const wrong = 6 - lives;
+    // 1. Hangman drawing (emoji stages)
+    const stages = ["", "😐", "😐\n👕", "😐\n👕\n👖", "😐\n👕\n👖\n👞", "😵"];
+    const wrong = 6 - lives;
+    document.getElementById("drawing").textContent = stages[Math.min(wrong, 5)] || "";
 
-  document.getElementById("drawing").textContent = stages[Math.min(wrong, 5)];
+    const wordBox = document.getElementById("word");
+    wordBox.innerHTML = "";
+    for (const letter of word) {
+        const span = document.createElement("span");
+        span.textContent = correct.includes(letter) ? letter : "";
+        wordBox.appendChild(span);
+    }
 
-  const wordBox = document.getElementById("word");
-  wordBox.innerHTML = "";
-  for (const letter of word) {
-    const span = document.createElement("span");
-    span.textContent = correct.includes(letter) ? letter : "";
-    wordBox.appendChild(span);
-  }
+    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+    document.getElementById("guessed").textContent =
+        guessed.slice().sort().join(" ") || "—";
+    document.getElementById("remaining").textContent =
+        alphabet.filter(char => !guessed.includes(char)).join(" ") || "—";
 
-  const alphabet = "QWERTYUIOPASDFGHJKLZXCVBNM".split("");
-  document.getElementById("guessed").textContent =
-    guessed.slice().sort().join(" ") || "-";
-
-  document.getElementById("remaining").textContent =
-    alphabet.filter((char) => !guessed.includes(char)).join(" ") || "-";
-
-  document.querySelectorAll("keybord button").forEach((btn) => {
-    btn.disabled = guessed.includes(btn.textContent) || over;
-  });
+    document.querySelectorAll("#keyboard button").forEach(btn => {
+        btn.disabled = guessed.includes(btn.textContent) || over;
+    });
 }
-
