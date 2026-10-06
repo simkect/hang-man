@@ -2,7 +2,8 @@ body {
   font-family: sans-serif;
   background-color: whitesmoke;
   color: rgb(96 35 2);
-  display: grid;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px;
