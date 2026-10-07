@@ -22,7 +22,7 @@
 #### 
 * Read about the story/premise.
 * Once ready, click the "Click Me, You Won't Be Dissapointed" button.
-* Pick the letters as the game is there
+* Pick the letters as the game is there to entertain you when times are boring. Everything you need to know is there for you to explore!
 * Win the game to unlock your own joy.
 * Enjoy yourself!
 ***
