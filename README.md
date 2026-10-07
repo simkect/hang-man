@@ -35,10 +35,10 @@
 ### ***Screenshots***
 
 ##### Hang The Man Intro
-![intro](file:///Users/ga-23/GA/projects/hang-man/img/Screenshot 2026-10-07 at 12.02.01.png)
+![intro](https://github.com/simkect/hang-man/blob/main/img/Screenshot%202026-10-07%20at%2012.02.01.png)
 
 ##### Hang The Man Main
-![main](file:///Users/ga-23/GA/projects/hang-man/img/Screenshot 2026-10-07 at 12.02.50.png)
+![main](https://github.com/simkect/hang-man/blob/main/img/Screenshot%202026-10-07%20at%2012.02.50.png)
 ***
 
 ### ***Credits***
