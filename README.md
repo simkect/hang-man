@@ -1,0 +1,46 @@
+# Hang The Man
+
+### By: Radomir Simovic
+
+#### [GitHub](https://github.com/simkect) | 
+#### Date: 10/7/2026
+***
+
+### ***Description***
+####  Hang the man is a guessing game intended to intertain when boring times. How it is played in esence is you click the button and the letter appears or doesn't on the screen, based on the condition if the letter is present in the words.
+***
+
+### ***Technologies Used***
+* Javascript
+* HTML
+* CSS
+* Squoosh
+***
+
+### ***Getting Started***
+
+#### 
+* Read about the story/premise.
+* Once ready, click the "Click Me, You Won't Be Dissapointed" button.
+* Pick the letters as the game is there
+* Win the game to unlock your own joy.
+* Enjoy yourself!
+***
+
+### ***Future Updates***
+
+- [ ] Really!
+***
+
+### ***Screenshots***
+
+##### Hang The Man Intro
+![intro](file:///Users/ga-23/GA/projects/hang-man/img/Screenshot 2026-10-07 at 12.02.01.png)
+
+##### Hang The Man Main
+![main](file:///Users/ga-23/GA/projects/hang-man/img/Screenshot 2026-10-07 at 12.02.50.png)
+***
+
+### ***Credits***
+#### Support and Help: SEI-DRY @ GA
+#### Pictures: [Hang Machine](https://www.shutterstock.com/image-vector/gallows-sketch-device-hanging-objects-medieval-544167295?dd_referrer=https%3A%2F%2Fwww.google.com%2F)
