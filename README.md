@@ -15,6 +15,7 @@
 * HTML
 * CSS
 * Squoosh
+* Github
 ***
 
 ### ***Getting Started***
