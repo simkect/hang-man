@@ -1,7 +1,3 @@
-/* Perheps I need 5 variebles, I most certainly need word to work with, some lives to hang the man if they are lost.
-Function to start the game, function to check if the word is guessed or lives are lost with messageing.
-i will need few cashed items so we can click about it or around it. Some function to reset the word ...*/
-
 const words = [
   "Algeria — Algiers",
   "Angola — Luanda",
