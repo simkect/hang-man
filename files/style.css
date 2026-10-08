@@ -1,0 +1,597 @@
+* {
+  box-sizing: border-box;
+}
+
+.body {
+  font-family: sans-serif;
+  background-image: url("../img/hangingMachine.avif");
+  background-repeat: no-repeat;
+  background-size: 45rem;
+  background-position: -19rem 0.1rem;
+  color: rgb(96 35 2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.body1 {
+  font-family: sans-serif;
+  background-image: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), url("../img/hangingMachine.avif");
+  background-repeat: no-repeat;
+  background-size: 45rem;
+  background-position: center;
+  color: rgb(96 35 2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  background: rgb(146, 169, 198);
+  border-radius: 35px;
+  padding: 20px;
+}
+
+#drawing {
+  font-size: 30px;
+  white-space: pre;
+  text-align: center;
+  height: 160px;
+  margin-bottom: 20px;
+}
+
+#word {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 40px;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+}
+
+#word span {
+  border-bottom: 2px solid black;
+  min-width: 30px;
+  text-align: center;
+}
+
+#message {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  min-height: 30px;
+}
+
+#game-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+#keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-width: 500px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#keyboard button {
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+#keyboard button:disabled {
+  background: grey;
+  color: #999;
+  cursor: not-allowed;
+}
+
+table {
+  border-collapse: collapse;
+  background: rgb(243, 238, 238);
+  color: rgb(96 35 2);
+  margin-bottom: 20px;
+}
+
+th, td {
+  border: none;
+  border-radius: 30px;
+  background: rgb(238, 235, 235);
+  padding: 8px 20px;
+  text-align: center;
+  font-size: 16px;
+}
+
+th {
+  background: rgb(146, 169, 198);
+}
+
+#reset {
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  background: rgb(146, 169, 198);
+  color: rgb(96 35 2);
+  border: none;
+  border-radius: 25px;
+}
+
+#start {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  height: 10rem;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+h2 {
+  text-align: center;
+  height: 3rem;
+}
+
+#index {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 3rem;
+}
+
+p {
+  width: 50%;
+  text-align: justify;
+}
+
+#pcent {
+  text-align: center;
+}
+
+#top-right {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  z-index: 10;
+}
+
+#intro {
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  background: rgb(146, 169, 198);
+  color: rgb(96 35 2);
+  border: none;
+  font-size: 15px;
+}
+
+#intro:hover {
+  background: rgb(120, 145, 175);
+}
+
+#scoreboard {
+  margin: 60px 0;
+  background: rgb(243, 238, 238);
+  color: rgb(96 35 2);
+  padding: 10px 14px;
+  border-radius: 18px;
+  border: 2px solid rgb(146, 169, 198);
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
+  min-width: 130px;
+  max-width: 200px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+#scoreboard h4 {
+  margin: 0 0 6px 0;
+  font-size: 14px;
+  color: rgb(96 35 2);
+}
+
+#scoreboard p {
+  margin: 4px 0;
+  font-size: 12px;
+  width: auto;
+  text-align: center;
+}
+
+#playerDisplay {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 900;
+  color: rgb(96 35 2);
+  background: rgb(146, 169, 198);
+  padding: 3px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 130px;
+}
+
+#winCount, #lossCount {
+  font-size: 15px;
+  font-weight: 900;
+  color: rgb(96 35 2);
+}
+
+@media (max-width: 1024px) {
+  .body,
+  .body1 {
+    background-size: 32rem;
+    background-position: -13.5rem 0.1rem;
+  }
+
+  .body1 {
+    background-position: center;
+  }
+
+  #drawing {
+    font-size: 26px;
+    height: 140px;
+  }
+
+  #word {
+    font-size: 34px;
+    letter-spacing: 3px;
+  }
+
+  #keyboard {
+    max-width: 440px;
+  }
+
+  #keyboard button {
+    width: 38px;
+    height: 38px;
+    font-size: 15px;
+  }
+
+  #scoreboard {
+    margin: 40px 0;
+  }
+
+  p {
+    width: 70%;
+  }
+}
+
+@media (max-width: 768px) {
+  .body,
+  .body1 {
+    background-size: 26rem;
+    background-position: -11rem 0.1rem;
+  }
+
+  .body1 {
+    background-position: center;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    padding: 14px 18px;
+    border-radius: 25px;
+    text-align: center;
+  }
+
+  #drawing {
+    font-size: 22px;
+    height: 120px;
+    margin-bottom: 14px;
+  }
+
+  #word {
+    font-size: 28px;
+    letter-spacing: 2px;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+
+  #word span {
+    min-width: 24px;
+  }
+
+  #message {
+    font-size: 18px;
+    min-height: 24px;
+    text-align: center;
+  }
+
+  #game-row {
+    gap: 14px;
+  }
+
+  #keyboard {
+    gap: 5px;
+    max-width: 100%;
+    padding: 0 8px;
+  }
+
+  #keyboard button {
+    width: 34px;
+    height: 34px;
+    font-size: 14px;
+    border-radius: 4px;
+  }
+
+  table {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  th, td {
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 20px;
+  }
+
+  #reset {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  #start {
+    height: auto;
+    font-size: 26px;
+    gap: 12px;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    height: auto;
+  }
+
+  #index {
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px;
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  p {
+    width: 90%;
+    font-size: 15px;
+  }
+
+  #top-right {
+    top: 12px;
+    right: 12px;
+    gap: 8px;
+  }
+
+  #intro {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  #scoreboard {
+    margin: 20px 0;
+    min-width: 110px;
+    max-width: 170px;
+    padding: 8px 10px;
+  }
+
+  #scoreboard h4 {
+    font-size: 13px;
+  }
+
+  #scoreboard p {
+    font-size: 11px;
+  }
+
+  #playerDisplay {
+    font-size: 11px;
+    max-width: 110px;
+    padding: 2px 8px;
+  }
+
+  #winCount, #lossCount {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .body,
+  .body1 {
+    background-size: 20rem;
+    background-position: -8.5rem 0.1rem;
+  }
+
+  .body1 {
+    background-position: center;
+  }
+
+  h1 {
+    font-size: 1.2rem;
+    padding: 10px 14px;
+    border-radius: 20px;
+  }
+
+  #drawing {
+    font-size: 18px;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+
+  #word {
+    font-size: 22px;
+    letter-spacing: 1px;
+    gap: 4px;
+    margin-bottom: 10px;
+    justify-content: center;
+  }
+
+  #word span {
+    min-width: 18px;
+    border-bottom: 1.5px solid black;
+  }
+
+  #message {
+    font-size: 15px;
+    min-height: 20px;
+    margin-bottom: 10px;
+  }
+
+  #game-row {
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  #keyboard {
+    gap: 4px;
+    margin-bottom: 12px;
+    padding: 0 4px;
+  }
+
+  #keyboard button {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+    border-radius: 4px;
+  }
+
+  table {
+    max-width: 100%;
+    margin-bottom: 12px;
+  }
+
+  th, td {
+    padding: 5px 8px;
+    font-size: 12px;
+    border-radius: 14px;
+  }
+
+  #reset {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  #start {
+    font-size: 20px;
+    gap: 10px;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  #index {
+    padding: 10px;
+    margin-top: 1.5rem;
+    border-radius: 16px;
+    font-size: 14px;
+  }
+
+  p {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  #top-right {
+    top: 8px;
+    right: 8px;
+    gap: 6px;
+  }
+
+  #intro {
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 14px;
+  }
+
+  #scoreboard {
+    margin: 12px 0;
+    min-width: 90px;
+    max-width: 140px;
+    padding: 6px 8px;
+    border-radius: 14px;
+  }
+
+  #scoreboard h4 {
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+
+  #scoreboard p {
+    font-size: 10px;
+    margin: 2px 0;
+  }
+
+  #playerDisplay {
+    font-size: 10px;
+    max-width: 90px;
+    padding: 2px 6px;
+  }
+
+  #winCount, #lossCount {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .body,
+  .body1 {
+    background-size: 16rem;
+    background-position: -6.8rem 0.1rem;
+  }
+
+  .body1 {
+    background-position: center;
+  }
+
+  #keyboard button {
+    width: 26px;
+    height: 26px;
+    font-size: 11px;
+  }
+
+  #word {
+    font-size: 18px;
+  }
+
+  #drawing {
+    font-size: 15px;
+    height: 80px;
+  }
+
+  h1 {
+    font-size: 1rem;
+    padding: 8px 10px;
+  }
+
+  #start {
+    font-size: 17px;
+  }
+}

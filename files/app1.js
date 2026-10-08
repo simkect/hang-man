@@ -13,7 +13,7 @@ updateDisplay();
 }
 
 function updateDisplay() {
-document.getElementById("introPlayerDisplay").textContent = `👤 ${player.name}`;
+document.getElementById("introPlayerDisplay").textContent = `${player.name}`;
 }
 
 document.getElementById("setIntroPlayer").onclick = savePlayerName;

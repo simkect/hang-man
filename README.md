@@ -29,7 +29,7 @@
 
 ### ***Future Updates***
 
-- [ ] Really!
+- [ ] Have more players.
 ***
 
 ### ***Screenshots***
@@ -42,5 +42,5 @@
 ***
 
 ### ***Credits***
-#### Support and Help: SEI-DRY @ GA
+#### Support and Help: Some Visions of Mine
 #### Pictures: [Hang Machine](https://www.shutterstock.com/image-vector/gallows-sketch-device-hanging-objects-medieval-544167295?dd_referrer=https%3A%2F%2Fwww.google.com%2F)

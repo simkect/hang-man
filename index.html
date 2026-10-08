@@ -4,44 +4,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/x-icon" href="img/hangingMachine.avif">
-  <link rel="stylesheet" href="style.css">
-  <script defer src="app.js"></script>
-  <title>Hang The Man Game</title>
+  <title>Document</title>
+  <link rel="icon" type="image/x-icon" href="../img/hangingMachine.avif">
+  <link rel="stylesheet" href="files/style.css">
+  <script defer src="files/app1.js"></script>
 </head>
 
-<body class="body">
-
-  <!-- Top-right corner: Intro button + Scoreboard stacked -->
-  <div id="top-right">
-    <a href="hi.html">
-      <button id="intro">Intro</button>
-    </a>
-
-    <aside id="scoreboard">
-      <h4>📊 Score</h4>
-      <p><span id="playerDisplay">👤 Guest</span></p>
-      <p><strong>Wins:</strong> <span id="winCount">0</span></p>
-      <p><strong>Losses:</strong> <span id="lossCount">0</span></p>
-    </aside>
+<body class="body1">
+  <header id="start">You've come a long way to be hanged, and I'm happy for you!</header>
+  <h2 id="wel">Wlecome to "Hang The Man" Game</h2>
+  <h3 id="inst">Instructions</h3>
+  <p id="para"><b>Please</b>, be aware that this game is not for faint hearted. If you want to succeed you have to
+    have at least basic knowledge of the countries and the capital cities of the Great continent of Africa. The game
+    is played at least at this point, by YOU clicking on the available buttons, and if the letters are within the
+    current country or city, that letter is displayed on the screen. In all other cases a part of the body will
+    appear and if YOU have six wrong guesses of the letter, you're most probably be hanged!</p>
+  <p id="pcent"><b>Enjoy!</b></p>
+  <div id="player-area-intro">
+    <label for="introPlayerName">Player:</label>
+    <input type="text" id="introPlayerName" placeholder="Enter your name" value="Guest">
+    <button id="setIntroPlayer">Set Player</button>
+    <span id="introPlayerDisplay">Guest</span>
   </div>
 
-  <h1>Hang The Man</h1>
-  <div id="drawing"></div>
-  <div id="word"></div>
-  <div id="message"></div>
-  <div id="keyboard"></div>
-
-  <table>
-    <tr><th>Guessed</th><th>Remaining</th></tr>
-    <tr>
-      <td id="guessed"></td>
-      <td id="remaining"></td>
-    </tr>
-  </table>
-
-  <button id="reset">New word</button>
-
+  <a href="files/index1.html">
+    <button id="index">Click Me, You Won't Be Dissapointed</button>
+  </a>
 </body>
-
 </html>

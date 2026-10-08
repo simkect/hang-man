@@ -74,7 +74,7 @@ function updateScoreboard() {
 
   if (winEl) winEl.textContent = player.wins;
   if (lossEl) lossEl.textContent = player.losses;
-  if (nameEl) nameEl.textContent = `👤 ${player.name}`;
+  if (nameEl) nameEl.textContent = `${player.name}`;
 }
 
 function setPlayerName() {
