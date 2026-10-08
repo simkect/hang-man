@@ -48,7 +48,7 @@ const words = [
   "Seychelles — Victoria",
   "Sierra Leone — Freetown",
   "Somalia — Mogadishu",
-  "South Africa — Pretoria (administrative),  Cape Town (legislative) and Bloemfontein (judicial)",
+  "South Africa — Pretoria (administrative), Cape Town (legislative) and Bloemfontein (judicial)",
   "South Sudan — Juba",
   "Sudan — Khartoum",
   "Tanzania — Dodoma",
@@ -59,11 +59,46 @@ const words = [
   "Zimbabwe — Harare",
 ];
 
+const player = {
+  name: sessionStorage.getItem("playerName") || "Guest",
+  wins: 0,
+  losses: 0,
+};
+
 let word = "";
 let lives = 6;
 let guessed = [];
 let correct = [];
 let over = false;
+
+function updateScoreboard() {
+  const winEl = document.getElementById("winCount");
+  const lossEl = document.getElementById("lossCount");
+  const nameEl = document.getElementById("playerDisplay");
+
+  if (winEl) winEl.textContent = player.wins;
+  if (lossEl) lossEl.textContent = player.losses;
+  if (nameEl) nameEl.textContent = `👤 ${player.name}`;
+}
+
+function setPlayerName() {
+  const input = document.getElementById("playerName");
+  if (!input) return;
+  const newName = input.value.trim() || "Guest";
+  player.name = newName;
+  sessionStorage.setItem("playerName", newName);
+  updateScoreboard();
+}
+
+function recordWin() {
+  player.wins += 1;
+  updateScoreboard();
+}
+
+function recordLoss() {
+  player.losses += 1;
+  updateScoreboard();
+}
 
 function newGame() {
   word = words[Math.floor(Math.random() * words.length)];
@@ -71,13 +106,17 @@ function newGame() {
   guessed = [];
   correct = [];
   over = false;
-  document.getElementById("message").textContent = "";
+
+  const msg = document.getElementById("message");
+  if (msg) msg.textContent = "";
+
   buildKeyboard();
   draw();
 }
 
 function buildKeyboard() {
   const kb = document.getElementById("keyboard");
+  if (!kb) return;
   kb.innerHTML = "";
   "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").forEach((letter) => {
     const btn = document.createElement("button");
@@ -90,28 +129,42 @@ function buildKeyboard() {
 function draw() {
   const stages = ["", "😐", "😐\n👕", "😐\n👕\n👖", "😐\n👕\n👖\n👞", "😵"];
   const wrong = 6 - lives;
-  document.getElementById("drawing").textContent = stages[Math.min(wrong, stages.length - 1)] || "";
+
+  const drawingEl = document.getElementById("drawing");
+  if (drawingEl) {
+    drawingEl.textContent =
+      stages[Math.min(wrong, stages.length - 1)] || "";
+  }
 
   const wordBox = document.getElementById("word");
-  wordBox.innerHTML = "";
-  
-  word.split("").forEach((letter) => {
-    const span = document.createElement("span");
-    const isLetter = /[a-zA-Z]/.test(letter);
-    const isGuessed = guessed.includes(letter.toUpperCase());
+  if (wordBox) {
+    wordBox.innerHTML = "";
+    word.split("").forEach((letter) => {
+      const span = document.createElement("span");
+      const isLetter = /[a-zA-Z]/.test(letter);
+      const isGuessed = guessed.includes(letter.toUpperCase());
 
-    if (!isLetter) {
-      span.textContent = letter;
-      span.className = "symbol";  
-    } else {
-      span.textContent = isGuessed ? letter : "_";
-    }
-    wordBox.appendChild(span);
-  });
+      if (!isLetter) {
+        span.textContent = letter;
+        span.className = "symbol";
+      } else {
+        span.textContent = isGuessed ? letter : "_";
+      }
+      wordBox.appendChild(span);
+    });
+  }
 
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-  document.getElementById("guessed").textContent = guessed.slice().sort().join(" ") || "—";
-  document.getElementById("remaining").textContent = alphabet.filter((char) => !guessed.includes(char)).join(" ") || "—";
+  const guessedEl = document.getElementById("guessed");
+  const remainingEl = document.getElementById("remaining");
+
+  if (guessedEl) {
+    guessedEl.textContent = guessed.slice().sort().join(" ") || "—";
+  }
+  if (remainingEl) {
+    remainingEl.textContent =
+      alphabet.filter((char) => !guessed.includes(char)).join(" ") || "—";
+  }
 
   document.querySelectorAll("#keyboard button").forEach((btn) => {
     btn.disabled = guessed.includes(btn.textContent) || over;
@@ -132,18 +185,57 @@ function guess(letter) {
 
     if (isWon) {
       over = true;
-      document.getElementById("message").textContent = "You win!";
+      const msg = document.getElementById("message");
+      if (msg) msg.textContent = "You win!";
+      recordWin();
     }
   } else {
     lives--;
     if (lives <= 0) {
       over = true;
-      document.getElementById("message").textContent = `Game over! The word was: ${word}`;
+      const msg = document.getElementById("message");
+      if (msg) msg.textContent = `Game over! The word was: ${word}`;
+      recordLoss();
     }
   }
 
   draw();
 }
 
-document.getElementById("reset").onclick = newGame;
-newGame();
+const resetBtn = document.getElementById("reset");
+if (resetBtn) resetBtn.onclick = newGame;
+
+const setPlayerBtn = document.getElementById("setPlayer");
+if (setPlayerBtn) setPlayerBtn.onclick = setPlayerName;
+
+const playerNameInput = document.getElementById("playerName");
+if (playerNameInput) {
+
+  playerNameInput.value = player.name;
+
+  playerNameInput.addEventListener("focus", () => {
+    if (playerNameInput.value.trim() === "Guest") {
+      playerNameInput.value = "";
+    }
+  });
+
+  playerNameInput.addEventListener("blur", () => {
+    if (playerNameInput.value.trim() === "") {
+      playerNameInput.value = "Guest";
+    }
+  });
+
+  playerNameInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      setPlayerName();
+      playerNameInput.blur();
+    }
+  });
+}
+
+if (document.getElementById("winCount")) {
+  updateScoreboard();
+}
+if (document.getElementById("word")) {
+  newGame();
+}
